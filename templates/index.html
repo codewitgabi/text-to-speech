@@ -1,0 +1,38 @@
+{% load static %}
+{% load gTTS %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <title>Text to Speech</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <legend class="title">Text to Speech Converter</legend>
+            <form action="" method="post">
+              {% csrf_token %}
+                <input
+                  type="text"
+                  name="text"
+                  id="text"
+                  placeholder="Type text to speak..."
+                  required>
+                <button id="speak-btn">Speak</button>
+            </form>
+
+            {% if text %}
+              <audio
+                  src="{% say 'en-us' text %}"
+                controls
+              ></audio>
+            {% endif %}
+
+        </div>
+    </body>
+
+</html>
