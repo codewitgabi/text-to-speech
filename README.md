@@ -8,5 +8,5 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Once that's done, visit [https://localhost:8000/](localhost)
+Once that's done, visit [localhost](https://localhost:8000/)
 
